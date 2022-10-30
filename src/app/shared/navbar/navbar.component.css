@@ -1,0 +1,55 @@
+.left-navbar {
+  width: 64px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  transition: all 0.2s;
+}
+.left-navbar.collapsed {
+  width: 64px !important;
+  transition: all 0.2s;
+}
+.nav {
+  flex: 1;
+}
+.nav-link {
+  color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.nav-link:hover {
+  color: white;
+  background-color: rgba(103, 81, 242, 1);
+  transition: all 0.2s;
+}
+.nav-link.active {
+  color: white;
+  background-color: rgba(103, 81, 242, 1);
+  transition: all 0.2s;
+}
+.bi {
+  font-size: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.logo {
+  padding: 32px 16px;
+}
+.logo .bi {
+  font-size: 24px;
+  color: rgba(103, 81, 242, 1);
+}
+.logo.small .bi {
+  font-size: 24px !important;
+}
+
+@media (min-width: 768px) {
+  .left-navbar {
+    width: 260px;
+  }
+
+  .logo .bi {
+    font-size: 48px;
+  }
+}

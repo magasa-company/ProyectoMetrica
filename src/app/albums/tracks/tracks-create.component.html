@@ -1,0 +1,109 @@
+<div *ngIf="title">
+  <app-detail-header
+    [title]="title"
+    [subtitle]="subtitle"
+    [imgSrc]="imageSrc"
+    [breadcrumbs]="breadcrumbs"
+  ></app-detail-header>
+</div>
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <form
+        [formGroup]="trackForm"
+        (ngSubmit)="!trackForm.invalid && addNewTrack(trackForm.value)"
+      >
+        <div id="nameLabel" class="mb-4" [formGroup]="trackForm">
+          <label for="name" class="form-label" i18n> Título </label>
+          <input
+            novalidate
+            id="name"
+            name="name"
+            class="form-control w-100"
+            [class.is-valid]="name.valid && name.touched"
+            [class.is-invalid]="name.invalid && name.touched"
+            formControlName="name"
+            i18n-placeholder
+            placeholder="Título de la canción"
+            required
+          />
+          <div
+            id="nameRequiredError"
+            class="invalid-feedback"
+            *ngIf="
+              trackForm.get('name').hasError('required') &&
+              trackForm.get('name').touched
+            "
+            i18n
+          >
+            Título es requerido
+          </div>
+        </div>
+        <div id="durationLabel" class="mb-4" [formGroup]="trackForm">
+          <label for="duration" class="form-label" i18n> Duración </label>
+          <input
+            novalidate
+            id="duration"
+            name="duration"
+            class="form-control w-100"
+            [class.is-valid]="duration.valid && duration.touched"
+            [class.is-invalid]="duration.invalid && duration.touched"
+            formControlName="duration"
+            i18n-placeholder
+            placeholder="Duración de la canción"
+            required
+          />
+          <div
+            id="durationRequiredError"
+            class="invalid-feedback"
+            *ngIf="
+              trackForm.get('duration').hasError('required') &&
+              trackForm.get('duration').touched
+            "
+            i18n
+          >
+            La duración es requerida
+          </div>
+          <div
+            id="durationPatternError"
+            class="invalid-feedback"
+            *ngIf="
+              trackForm.get('duration').hasError('pattern') &&
+              trackForm.get('duration').touched
+            "
+            i18n
+          >
+            La duración debe tener este formato: ##:##, por ejemplo 15:05 o 3:54
+          </div>
+        </div>
+        <button
+          id="createButton"
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!trackForm.valid"
+          i18n
+        >
+          Crear
+        </button>
+        <button
+          id="cleanButton"
+          type="button"
+          class="btn btn-secondary ml-3"
+          (click)="cleanFields()"
+          i18n
+        >
+          Limpiar
+        </button>
+        <button
+          id="cancelButton"
+          type="button"
+          class="btn btn-danger ml-3"
+          (click)="cancelCreation()"
+          i18n
+        >
+          Cancelar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.btn-primary {
+  background: rgba(103, 81, 242, 1);
+  color: white;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background: rgb(73, 58, 170);
+}
+.btn-outline-primary {
+  color: rgba(103, 81, 242, 1);
+  border-color: rgba(103, 81, 242, 1);
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-check:checked + .btn-outline-primary {
+  border-color: rgba(103, 81, 242, 1);
+  background: rgba(103, 81, 242, 1);
+  color: white;
+}

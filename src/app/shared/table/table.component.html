@@ -1,0 +1,73 @@
+<table
+  id="dataTable{{ tableContentName }}"
+  caption="lista de datos"
+  i18n-caption
+  class="table table-shadow"
+>
+  <thead>
+    <tr>
+      <th
+        class="text-uppercase text-secondary"
+        *ngFor="let header of headers"
+        id="tableHeaders{{ header }}"
+      >
+        <small>{{ header }}</small>
+      </th>
+      <th
+        aria-label="Acciones sobre los registros"
+        i18n-aria-label
+        id="table-actions{{ tableContentName }}"
+        i18n
+        class="text-uppercase text-secondary"
+      >
+        <small>Detalle</small>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="dataRow{{ tableContentName }}" *ngFor="let row of rows; index as idx">
+      <td
+        *ngFor="let value of row.columns; index as columnIdx"
+        id="{{
+          headers[columnIdx]
+            ? 'table-' + headers[columnIdx].toLowerCase() + idx
+            : ''
+        }}"
+        class="align-middle {{
+          headers[columnIdx]
+            ? 'field-' + headers[columnIdx].toLowerCase()
+            : ''
+        }}"
+        [innerHTML]="value"
+      ></td>
+      <td>
+        <button
+          *ngIf="row.viewButtonClick"
+          id="{{
+               'viewDetails' + tableContentName + 'Button-' + idx
+          }}"
+          type="button"
+          class="btn btn-primary"
+          (click)="row.viewButtonClick()"
+          aria-label="Ver detalle"
+          i18n-aria-label
+        >
+          <em class="bem bi-chevron-right"></em>
+        </button>
+
+        <button
+          *ngIf="row.viewButtonClickadd"
+          type="button"
+          class="btn btn-primary"
+          (click)="row.viewButtonClickadd()"
+          aria-label="Adicional"
+          i18n-aria-label
+        >
+         +
+        </button>
+
+
+      </td>
+    </tr>
+  </tbody>
+</table>

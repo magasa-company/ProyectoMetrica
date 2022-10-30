@@ -1,0 +1,24 @@
+.details-header {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  background: #f6f2ff;
+}
+
+.musician-img {
+  object-fit: cover;
+  height: 280px;
+  width: 100%;
+  box-shadow: 0px 0.5rem 1rem rgba(23, 97, 255, 0.15);
+}
+
+.featured-title {
+  color: rgba(103, 81, 242, 1);
+}
+
+.featured-text-item {
+  width: auto;
+}
+
+.secondary-table {
+  padding-left: 0px;
+}

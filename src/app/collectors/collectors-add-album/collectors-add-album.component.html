@@ -1,0 +1,66 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<div *ngIf="!isLoading">
+  <div *ngIf="collector">
+    <app-detail-header
+    [title]="title"
+    [breadcrumbs]="breadcrumbs"
+    ></app-detail-header>
+  </div>
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <form
+          [formGroup]="commentForm"
+          (ngSubmit)="!commentForm.invalid && addAlbums()"
+        >
+          <div class="mb-4">
+            <label i18n for="musician-description" class="form-label">
+              Selecciona un álbum*
+            </label>
+            <div class="input-group has-validation">
+              <select
+                novalidate
+                class="form-select"
+                formControlName="albumId"
+                name="albumId"
+                [class.is-valid]="albumId.valid && albumId.touched"
+                [class.is-invalid]="albumId.invalid && albumId.touched"
+                required
+              >
+                <option selected disabled value="">Seleccionar...</option>
+                <option *ngFor="let option of musicanOptions" [value]="option.value">
+                  {{option.label}}
+                </option>
+              </select>
+              <div
+                i18n
+                *ngIf="albumId.errors?.required"
+                class="invalid-feedback"
+              >
+                El álbum no puede estar vacio.
+              </div>
+            </div>
+          </div>
+
+
+          <button
+            i18n
+            type="submit"
+            class="btn btn-primary me-4"
+            [class.disabled]="!commentForm.valid"
+          >
+            Agregar álbum
+          </button>
+          <button
+            i18n
+            type="submit"
+            class="btn btn-outline-danger"
+            (click)="navigateBack()"
+          >
+            Cancelar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

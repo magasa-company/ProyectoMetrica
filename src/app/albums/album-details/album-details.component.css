@@ -1,0 +1,19 @@
+.comment-icon {
+  color: rgba(103, 81, 242, 1);
+  font-size: 32px;
+}
+.card-shadow {
+  box-shadow: 0px 0.5rem 1rem rgba(23, 97, 255, 0.15);
+}
+.card {
+  min-height: 200px;
+  border: none;
+}
+.btn {
+  background: rgba(103, 81, 242, 1);
+  color: white;
+}
+.btn:hover,
+.btn:focus {
+  background: rgb(73, 58, 170);
+}

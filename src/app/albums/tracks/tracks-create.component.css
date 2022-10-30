@@ -1,0 +1,43 @@
+.featured-musician-img {
+  height: 200px;
+  width: 71%;
+}
+
+.trackHeader {
+  margin-top: 35px;
+}
+
+.btn{
+  margin-right: 25px;
+  min-width: 100px;
+}
+
+.btn-secondary {
+  background: rgb(232, 240, 254, 1);
+  color: black;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: rgb(187, 206, 240);
+}
+
+.btn-primary {
+  background: rgba(103, 81, 182, 1);
+  color: white;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background: rgb(73, 58, 170);
+}
+.btn-outline-primary {
+  color: rgba(103, 81, 242, 1);
+  border-color: rgba(103, 81, 242, 1);
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-check:checked + .btn-outline-primary {
+  border-color: rgba(103, 81, 242, 1);
+  background: rgba(103, 81, 242, 1);
+  color: white;
+}

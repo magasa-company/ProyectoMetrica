@@ -1,0 +1,13 @@
+.list-header {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  background: #f6f2ff;
+}
+.btn {
+  background: rgba(103, 81, 242, 1);
+  color: white;
+}
+.btn:hover,
+.btn:focus {
+  background: rgb(73, 58, 170);
+}

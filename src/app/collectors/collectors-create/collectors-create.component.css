@@ -1,0 +1,15 @@
+.btn {
+  background: rgba(103, 81, 242, 1);
+  color: white;
+  margin-right: 25px;
+}
+.btn:hover,
+.btn:focus {
+  background: rgb(73, 58, 170);
+}
+.btn.btn-danger {
+  background: rgb(250, 26, 26);
+  color: white;
+  margin-right: 25px;
+}
+

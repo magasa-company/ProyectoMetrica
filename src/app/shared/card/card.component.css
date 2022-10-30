@@ -1,0 +1,7 @@
+.thumbnail {
+  max-height: 167px;
+  overflow: hidden;
+}
+.card-shadow {
+  box-shadow: 0px 0.5rem 1rem rgba(23, 97, 255, 0.15);
+}

@@ -1,0 +1,22 @@
+<app-loading *ngIf="!musician"></app-loading>
+<div *ngIf="musician">
+  <app-detail-header
+    [title]="musician.name"
+    [description]="musician.description"
+    [imgSrc]="musician.image"
+    [breadcrumbs]="breadcrumbs"
+    [featured]="featured"
+  ></app-detail-header>
+  <div class="container mt-5 mb-5">
+    <div class="row mb-5">
+      <section class="col">
+        <h2 i18n class="mb-3 h3">Álbumes</h2>
+        <app-table
+          [headers]="albumsTable.headers"
+          [rows]="albumsTable.rows"
+          [tableContentName]="albumsTable.tableContentName"
+        ></app-table>
+      </section>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,178 @@
+<testExecutions version="1">
+  <file path="src/app/albums/comments/comment-create/comment-create.component.spec.ts">
+    <testCase name="CommentCreateComponent #collectorId should return form control value when input changes" duration="341"/>
+    <testCase name="CommentCreateComponent #collectorId should return form control instance" duration="29"/>
+    <testCase name="CommentCreateComponent #onInit should get collectors and format select options" duration="28"/>
+    <testCase name="CommentCreateComponent #onInit should set albumId from params" duration="20"/>
+    <testCase name="CommentCreateComponent #onInit should initialize a form group with default values" duration="34"/>
+    <testCase name="CommentCreateComponent #description should return form control instance" duration="33"/>
+    <testCase name="CommentCreateComponent #description should return form control value when input changes" duration="31"/>
+    <testCase name="CommentCreateComponent #description should return invalid form control value when value is empty" duration="28"/>
+    <testCase name="CommentCreateComponent #description should return invalid form control when value is longer than 500 characters" duration="35"/>
+    <testCase name="CommentCreateComponent should create" duration="22"/>
+    <testCase name="CommentCreateComponent #navigateBack should redirect user to /albums/:id" duration="33"/>
+    <testCase name="CommentCreateComponent #rating should return form control instance" duration="31"/>
+    <testCase name="CommentCreateComponent #rating should return form control value when input changes" duration="34"/>
+    <testCase name="CommentCreateComponent #createMusician should build payload and call #createMusian from service" duration="29"/>
+    <testCase name="CommentCreateComponent #createMusician should call toaster and redirect user on success" duration="36"/>
+  </file>
+  <file path="src/app/collectors/collectors-details/collectors-details.component.spec.ts">
+    <testCase name="CollectorsDetailsComponent get collector" duration="37"/>
+    <testCase name="CollectorsDetailsComponent should create Collectors Details component" duration="10"/>
+    <testCase name="CollectorsDetailsComponent should call #getCollector and format breadcrumbs" duration="11"/>
+    <testCase name="CollectorsDetailsComponent should call #getCollectors and format featured" duration="15"/>
+  </file>
+  <file path="src/app/shared/detail-header/detail-header.component.spec.ts">
+    <testCase name="DetailHeaderComponent should render image when input is provided" duration="20"/>
+    <testCase name="DetailHeaderComponent should render component" duration="14"/>
+    <testCase name="DetailHeaderComponent should render description when input is provided" duration="15"/>
+    <testCase name="DetailHeaderComponent should render featured when input is provided" duration="21"/>
+    <testCase name="DetailHeaderComponent should render breadcrumbs when input is provided" duration="23"/>
+    <testCase name="DetailHeaderComponent should render subtitle when input is provided" duration="18"/>
+    <testCase name="DetailHeaderComponent should render title when input is provided" duration="16"/>
+  </file>
+  <file path="src/app/albums/album-details/album-details.component.spec.ts">
+    <testCase name="AlbumDetailsComponent should create album details component" duration="42"/>
+    <testCase name="AlbumDetailsComponent should render tracks table with albums tracks" duration="25"/>
+    <testCase name="AlbumDetailsComponent should render comments table with albums comments" duration="34"/>
+    <testCase name="AlbumDetailsComponent should render album header with information" duration="36"/>
+    <testCase name="AlbumDetailsComponent should call #getAlbum and format breadcrumbs" duration="32"/>
+    <testCase name="AlbumDetailsComponent should call #getAlbums and format cancionesTable" duration="30"/>
+    <testCase name="AlbumDetailsComponent should call #getAlbums and format featured" duration="23"/>
+  </file>
+  <file path="src/app/collectors/collectors.component.spec.ts">
+    <testCase name="CollectorsComponent should render the header with page name" duration="34"/>
+    <testCase name="CollectorsComponent should render the table with default headers" duration="24"/>
+    <testCase name="CollectorsComponent should render the table with Collectors name" duration="18"/>
+    <testCase name="CollectorsComponent should create Collectors component" duration="15"/>
+    <testCase name="CollectorsComponent should render title" duration="14"/>
+  </file>
+  <file path="src/app/albums/album-details/album-details.service.spec.ts">
+    <testCase name="Service: AlbumDetails getAlbumDetails() should return the album searched" duration="4"/>
+    <testCase name="Service: AlbumDetails should create service..." duration="7"/>
+  </file>
+  <file path="src/app/albums/albums.component.spec.ts">
+    <testCase name="AlbumsComponent Album list has image object" duration="28"/>
+    <testCase name="AlbumsComponent Album list has performers object" duration="28"/>
+    <testCase name="AlbumsComponent Album list has release date object" duration="22"/>
+    <testCase name="AlbumsComponent should render title" duration="14"/>
+    <testCase name="AlbumsComponent should render Album list data" duration="27"/>
+    <testCase name="AlbumsComponent should create albums component" duration="16"/>
+    <testCase name="AlbumsComponent Album list has name object" duration="32"/>
+  </file>
+  <file path="src/app/albums/albums.service.spec.ts">
+    <testCase name="Service: GetAlbums #createComment should call create comment endpoint" duration="11"/>
+    <testCase name="Service: GetAlbums should create service..." duration="5"/>
+    <testCase name="Service: GetAlbums getAlbums() should return 10 records" duration="5"/>
+  </file>
+  <file path="src/app/shared/navbar/navbar.component.spec.ts">
+    <testCase name="NavbarComponent should render component" duration="18"/>
+    <testCase name="NavbarComponent should collapse navbar when collapse button is clicked" duration="12"/>
+    <testCase name="NavbarComponent should render navbar buttons" duration="13"/>
+  </file>
+  <file path="src/app/musician/musician-list/musician-list.component.spec.ts">
+    <testCase name="MusicianListComponent should render the header with page name" duration="19"/>
+    <testCase name="MusicianListComponent should render the table with musicians name" duration="30"/>
+    <testCase name="MusicianListComponent should render the table with musicians picture" duration="16"/>
+    <testCase name="MusicianListComponent should render the table with default headers" duration="26"/>
+  </file>
+  <file path="src/app/albums/tracks/tracks-create.service.spec.ts">
+    <testCase name="Service: TracksCreate should create service..." duration="5"/>
+    <testCase name="Service: TracksCreate create tracks() should return the album searched" duration="3"/>
+  </file>
+  <file path="src/app/shared/table/table.component.spec.ts">
+    <testCase name="TableComponent should render row with provided data" duration="21"/>
+    <testCase name="TableComponent should render view button when a fn is provided" duration="20"/>
+    <testCase name="TableComponent should call fn view button is clicked" duration="20"/>
+    <testCase name="TableComponent should render a table with provided headers" duration="15"/>
+    <testCase name="TableComponent should render a table with provided rows" duration="11"/>
+    <testCase name="TableComponent should render table" duration="13"/>
+  </file>
+  <file path="src/app/shared/breadcrumbs/breadcrumbs.component.spec.ts">
+    <testCase name="BreadcrumbsComponent should render component" duration="14"/>
+  </file>
+  <file path="src/app/albums/album-create/album-create.component.spec.ts">
+    <testCase name="AlbumCreateComponent should check form is valid" duration="55"/>
+    <testCase name="AlbumCreateComponent should render components" duration="43"/>
+    <testCase name="AlbumCreateComponent should save" duration="46"/>
+    <testCase name="AlbumCreateComponent should show disabled create button" duration="34"/>
+    <testCase name="AlbumCreateComponent should check name validations" duration="37"/>
+    <testCase name="AlbumCreateComponent should create component" duration="31"/>
+    <testCase name="AlbumCreateComponent should check cover validations" duration="50"/>
+    <testCase name="AlbumCreateComponent should render title" duration="28"/>
+  </file>
+  <file path="src/app/shared/card/card.component.spec.ts">
+    <testCase name="CardComponent should render img when provided" duration="12"/>
+    <testCase name="CardComponent should create card component" duration="12"/>
+    <testCase name="CardComponent should add alt attr when provided" duration="16"/>
+  </file>
+  <file path="src/app/albums/album-create/album-create.service.spec.ts">
+    <testCase name="Service: AlbumCreate should create service..." duration="3"/>
+    <testCase name="Service: AlbumCreate getAlbumDetails() should return the album searched" duration="3"/>
+  </file>
+  <file path="src/app/collectors/collectors.service.spec.ts">
+    <testCase name="Service: GetCollectors getCollectors() should return 10 records" duration="4"/>
+  </file>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent Component has menu container" duration="33"/>
+    <testCase name="AppComponent Component has main content container" duration="25"/>
+    <testCase name="AppComponent should have as title 'Musik Geeks'" duration="25"/>
+    <testCase name="AppComponent should create the app" duration="22"/>
+  </file>
+  <file path="src/app/shared/list-header/list-header.component.spec.ts">
+    <testCase name="ListHeaderComponent should render component" duration="11"/>
+    <testCase name="ListHeaderComponent should render list header with provided title" duration="15"/>
+  </file>
+  <file path="src/app/musician/musician-details/musician-details.component.spec.ts">
+    <testCase name="MusicianDetailsComponent #onInit should call #getMusician and format breadcrumbs" duration="27"/>
+    <testCase name="MusicianDetailsComponent #onInit should call #getMusician and format albumsTable" duration="32"/>
+    <testCase name="MusicianDetailsComponent #onInit should call #getMusician and format featured" duration="68"/>
+    <testCase name="MusicianDetailsComponent should render albums table with musician albums" duration="38"/>
+    <testCase name="MusicianDetailsComponent should render musician header with information" duration="32"/>
+  </file>
+  <file path="src/app/shared/loading/loading.component.spec.ts">
+    <testCase name="LoadingComponent should render component" duration="13"/>
+  </file>
+  <file path="src/app/albums/tracks/tracks-create.component.spec.ts">
+    <testCase name="TracksCreateComponent should save" duration="29"/>
+    <testCase name="TracksCreateComponent should render components" duration="36"/>
+    <testCase name="TracksCreateComponent should show disabled create button" duration="36"/>
+    <testCase name="TracksCreateComponent should render title" duration="29"/>
+    <testCase name="TracksCreateComponent should check name validations" duration="32"/>
+    <testCase name="TracksCreateComponent should check duration validations" duration="17"/>
+    <testCase name="TracksCreateComponent should create component" duration="17"/>
+  </file>
+  <file path="src/app/home/home.component.spec.ts">
+    <testCase name="HomeComponent should render featured musician" duration="57"/>
+    <testCase name="HomeComponent should render album cards" duration="28"/>
+    <testCase name="HomeComponent should render album name and genre in card" duration="24"/>
+    <testCase name="HomeComponent should render musician cards" duration="20"/>
+    <testCase name="HomeComponent should render musician name and birthday in card" duration="24"/>
+  </file>
+  <file path="src/app/musician/musician.service.spec.ts">
+    <testCase name="Service: MusicianService #getMusicians should call the API and return musicians" duration="14"/>
+    <testCase name="Service: MusicianService #getMusician should call the API and return musician" duration="4"/>
+    <testCase name="Service: MusicianService #createMusician should call the API and return new musician" duration="3"/>
+  </file>
+  <file path="src/app/musician/musician-create/musician-create.component.spec.ts">
+    <testCase name="MusicianCreateComponent #birthDate should return invalid form control value when value is empty" duration="24"/>
+    <testCase name="MusicianCreateComponent #birthDate should return form control value when value changes" duration="28"/>
+    <testCase name="MusicianCreateComponent #birthDate should return form control instance" duration="30"/>
+    <testCase name="MusicianCreateComponent #createMusician should build payload and call #createMusian from service" duration="23"/>
+    <testCase name="MusicianCreateComponent #createMusician should call toaster and redirect user on success" duration="21"/>
+    <testCase name="MusicianCreateComponent should create" duration="24"/>
+    <testCase name="MusicianCreateComponent #name should return form control instance" duration="24"/>
+    <testCase name="MusicianCreateComponent #name should return form control value when input changes" duration="25"/>
+    <testCase name="MusicianCreateComponent #name should return invalid form control value when input is empty" duration="29"/>
+    <testCase name="MusicianCreateComponent #navigateBack should redirect user to /musicos" duration="25"/>
+    <testCase name="MusicianCreateComponent #description should return invalid form control value when value is empty" duration="16"/>
+    <testCase name="MusicianCreateComponent #description should return invalid form control when value is longer than 500 characters" duration="12"/>
+    <testCase name="MusicianCreateComponent #description should return form control instance" duration="34"/>
+    <testCase name="MusicianCreateComponent #description should return form control value when input changes" duration="26"/>
+    <testCase name="MusicianCreateComponent #image should return form control instance" duration="18"/>
+    <testCase name="MusicianCreateComponent #image should return form control value when value changes" duration="28"/>
+    <testCase name="MusicianCreateComponent #image should return invalid form control value when value is not a valid URI" duration="23"/>
+    <testCase name="MusicianCreateComponent #image should return invalid form control value when value is empty" duration="23"/>
+    <testCase name="MusicianCreateComponent #onInit should initializa a form group with default values" duration="17"/>
+  </file>
+</testExecutions>

@@ -1,0 +1,126 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<div *ngIf="!isLoading">
+  <app-list-header [title]="title"></app-list-header>
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <form
+          [formGroup]="commentForm"
+          (ngSubmit)="!commentForm.invalid && createComment()"
+        >
+          <div class="mb-4">
+            <label i18n for="musician-collectorId" class="form-label">
+              Selecciona un coleccionista*
+            </label>
+            <div id="collector-input" class="input-group has-validation">
+              <select
+                id="musician-collectorId"
+                novalidate
+                class="form-select"
+                formControlName="collectorId"
+                name="collectorId"
+                [class.is-valid]="collectorId.valid && collectorId.touched"
+                [class.is-invalid]="collectorId.invalid && collectorId.touched"
+                required
+              >
+                <option selected disabled value="" i18n>Seleccionar...</option>
+                <option *ngFor="let option of collectorOptions" [value]="option.value">
+                  {{option.label}}
+                </option>
+              </select>
+              <div
+                i18n
+                id="emptyCollectorIdMessage"
+                *ngIf="collectorId.errors?.required"
+                class="invalid-feedback"
+              >
+                El coleccionista no puede estar vacio.
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label i18n for="musician-description" class="form-label">
+              Comentario*
+            </label>
+            <div id="description-input" class="input-group has-validation">
+              <textarea
+                novalidate
+                required
+                rows="2"
+                name="description"
+                id="musician-description"
+                formControlName="description"
+                class="form-control w-100"
+                [class.is-valid]="description.valid && description.touched"
+                [class.is-invalid]="description.invalid && description.touched"
+              ></textarea>
+              <small class="mt-2 text-secondary">{{description.value.length}}/{{maxDescriptionLength}}</small>
+              <div
+                i18n
+                id="emptyDescriptionMessage"
+                *ngIf="description.errors?.required"
+                class="invalid-feedback"
+              >
+                El comentario no puede estar vacio.
+              </div>
+              <div
+                i18n
+                id="maxLengthMessage"
+                *ngIf="description.errors?.maxlength"
+                class="invalid-feedback"
+              >
+                El comentario no puede ser mayor a {{maxDescriptionLength}} caracteres.
+              </div>
+            </div>
+          </div>
+          <div class="mb-5">
+            <label i18n class="form-label w-100">
+              Calificación*
+            </label>
+            <div
+              class="btn-group btn-group-lg"
+              role="group"
+              aria-label="Rating radio toggle"
+              btn-group-lg>
+              <ng-template ngFor let-number [ngForOf]="[1,2,3,4,5]">
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="rating"
+                  formControlName="rating"
+                  id="btnradio-{{number}}"
+                  autocomplete="off"
+                  [value]="number"
+                >
+                <label
+                  class="btn btn-outline-primary"
+                  for="btnradio-{{number}}"
+                >
+                  {{number}}
+                </label>
+              </ng-template>
+            </div>
+          </div>
+          <button
+            i18n
+            type="submit"
+            id="submitBtn"
+            class="btn btn-primary me-4"
+            [class.disabled]="commentForm.invalid"
+            [disabled]="commentForm.invalid"
+          >
+            Agregar comentario
+          </button>
+          <button
+            i18n
+            id="cancelBtn"
+            class="btn btn-outline-danger"
+            (click)="navigateBack()"
+          >
+            Cancelar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

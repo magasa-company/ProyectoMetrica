@@ -1,0 +1,11 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li
+      *ngFor="let header of headers; index as idx;"
+      class="breadcrumb-item small"
+      [class.active]="headers.length - 1 === idx"
+    >
+      <strong class="text-uppercase">{{header}}</strong>
+    </li>
+  </ol>
+</nav>

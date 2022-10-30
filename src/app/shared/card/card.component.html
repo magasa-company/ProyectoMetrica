@@ -1,0 +1,12 @@
+<div class="card w-100 card-shadow">
+  <div class=" h-100 row g-0">
+    <div *ngIf="imgSrc" class="col-12 col-lg-5 thumbnail">
+      <img class="w-100" [src]="imgSrc" [alt]="imgAlt">
+    </div>
+    <div class="col-12" [class.col-lg-7]="!!imgSrc">
+      <div class="card-body">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

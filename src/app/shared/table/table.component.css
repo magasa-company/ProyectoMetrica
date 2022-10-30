@@ -1,0 +1,17 @@
+.table img {
+  object-fit: cover;
+  height: 48px;
+  width: 48px;
+}
+.table-shadow {
+  box-shadow: 0px 0.5rem 1rem rgba(23, 97, 255, 0.15);
+}
+.btn-primary {
+  background: rgba(103, 81, 242, 1);
+  color: white;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background: rgb(73, 58, 170);
+  color: white;
+}

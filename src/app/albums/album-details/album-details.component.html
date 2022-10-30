@@ -1,0 +1,78 @@
+<app-loading *ngIf="!album"></app-loading>
+<div *ngIf="album">
+  <app-detail-header
+    [title]="album.name"
+    [subtitle]="album.listaPerformers"
+    [description]="album.description"
+    [imgSrc]="album.cover"
+    [breadcrumbs]="breadcrumbs"
+    [featured]="featured"
+  ></app-detail-header>
+  <div class="container mt-5 mb-5">
+    <div class="row mb-5">
+      <div class="col-6">
+        <h2 class="mb-3 h3" id="tracksTitle" i18n>Canciones</h2>
+      </div>
+      <div class="col text-end">
+        <button
+          (click)="onClickCancion()"
+          i18n-aria-label
+          type="button"
+          aria-label="Agregar item"
+          class="btn"
+          id="addTrackButton"
+        >
+          <em class="bi bi-plus"></em>
+          <span id="addButton" i18n>Agregar</span>
+        </button>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col">
+        <app-table
+          [headers]="cancionesTable.headers"
+          [rows]="cancionesTable.rows"
+          [tableContentName]="cancionesTable.tableContentName"
+        ></app-table>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-6">
+        <h2 class="h3" id="commentsTitle" i18n>Comentarios</h2>
+      </div>
+      <div class="col text-end">
+        <button
+          type="button"
+          aria-label="Agregar comentario"
+          class="btn btn-primary"
+          routerLink="./comentarios/agregar"
+          id="addCommentButton"
+        >
+          <em class="bi bi-plus"></em>
+          <span id="addCommentsButton" i18n>Agregar</span>
+        </button>
+      </div>
+    </div>
+    <div class="row row-cols-12 row-cols-sm-2 row-cols-lg-4">
+      <div class="col mb-5" *ngFor="let comment of album.comments">
+        <div class="card card-shadow">
+          <div class="card-body">
+            <em class="comment-icon bi bi-chat-square-quote"></em>
+            <p
+              class="card-title padded comment-description"
+
+            >
+              {{ comment.description }}
+            </p>
+          </div>
+          <div
+            class="card-footer fw-bold text-uppercase mb-0 text-muted comment-rating"
+            i18n
+          >
+            Calificación {{ comment.rating }}/5
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

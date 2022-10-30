@@ -1,0 +1,8 @@
+.btn-primary {
+  background: rgba(103, 81, 242, 1);
+  color: white;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background: rgb(73, 58, 170);
+}

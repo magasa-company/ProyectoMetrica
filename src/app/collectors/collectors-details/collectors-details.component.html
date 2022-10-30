@@ -1,0 +1,62 @@
+<app-loading *ngIf="!collector"></app-loading>
+<div *ngIf="collector">
+  <app-detail-header
+    [title]="collector.name"
+    [breadcrumbs]="breadcrumbs"
+    [featured]="featured"
+  ></app-detail-header>
+  <div class="container lg-12">
+    <div class="lg-3">
+      <button type="button"  id="returnCollertor" class="btn btn-primary btn-circle" (click)="listCollertor()" i18n> << Atras </button><br><br>
+    </div>
+    <div class="row mb-5">
+      <div class="col row">
+        <div class="col-11">
+          <h2 class="mb-3 h3"  id="colectionTitle"  i18n>Colecciones</h2>
+        </div>
+        <div class="col-1" *ngIf="collector"
+        align="right">
+          <button type="button"  id="colectionadd" class="btn btn-primary btn-circle" (click)="addColection(collector.id)"> + </button>&nbsp;&nbsp;
+        </div>
+        <app-table
+          [headers]="albumsTable.headers"
+          [rows]="albumsTable.rows"
+          [tableContentName]="albumsTable.tableContentName"
+        ></app-table>
+      </div>
+    </div>
+
+    <div class="row mb-5">
+      <div class="col row">
+        <div class="col-11"><h2 class="mb-3 h3"  id="musicianTitle"   i18n>Músicos favoritos</h2></div>
+        <div class="col-1" *ngIf="collector"
+        align="right">
+          <button type="button"  id="musicianadd" class="btn btn-primary btn-circle" (click)="addMusican(collector.id)"> + </button>&nbsp;&nbsp;
+        </div>
+       <app-table
+          [headers]="favoritePerformersTable.headers"
+          [rows]="favoritePerformersTable.rows"
+          [tableContentName]="favoritePerformersTable.tableContentName"
+        ></app-table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <h2 class="mb-3 h3" i18n>Comentarios recientes</h2>
+      </div>
+    </div>
+    <div class="row" *ngIf="collector">
+      <div class="col-3" *ngFor="let comment of collector.comments">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-title padded comment-description">{{ comment.description }}</p>
+            <span class="h5 card-text comment-rating">{{ comment.rating }}/5</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

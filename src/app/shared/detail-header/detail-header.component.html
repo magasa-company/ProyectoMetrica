@@ -1,0 +1,35 @@
+<div class="details-header">
+  <div class="container">
+    <div *ngIf="breadcrumbs.length" class="row mb-3">
+      <div class="col">
+        <app-breadcrumbs [headers]="breadcrumbs"></app-breadcrumbs>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngIf="imgSrc" class="col-12 col-lg-3">
+        <img class="musician-img mb-5 mb-lg-0" [src]="imgSrc" [alt]="title" />
+      </div>
+      <div class="col-12 {{ imgSrc ? 'col-lg-9' : 'col-lg-12' }}">
+        <h1 *ngIf="title" class="featured-title" >{{ title }}</h1>
+        <h2 *ngIf="subtitle" class="h4 text-secondary featured-subtitle" >{{ subtitle }}</h2>
+        <p *ngIf="description" class="lead" >{{ description }}</p>
+        <div
+          *ngIf="featured.length"
+          class="mt-4 container-fluid secondary-table"
+        >
+          <div class="row row-cols-auto">
+            <dl
+              *ngFor="let feature of featured"
+              class="featured-text-item col"
+            >
+              <dt class="text-uppercase fw-bold mb-2">
+                <small id="featureTitle{{feature.title.replace(' ','')}}">{{ feature.title }}</small>
+              </dt>
+              <dd id="feature{{feature.title.replace(' ','')}}" class="h5">{{ feature.subtitle }}</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

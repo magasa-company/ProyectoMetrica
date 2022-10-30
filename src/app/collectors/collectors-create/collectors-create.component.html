@@ -1,0 +1,118 @@
+<app-list-header [title]="title"></app-list-header>
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-12 col-md-6">
+
+      <form
+        [formGroup]="collectorForm"
+        (ngSubmit)="!collectorForm.invalid && createCollector(collectorForm.value)"
+      >
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="name" i18n> Name* </label>
+          <input
+            novalidate
+            required
+            id="name"
+            class="form-control"
+            formControlName="name"
+            placeholder="Your Full Name"
+          />
+          <div
+            class="nameRequiredError alert alert-danger alert-dismissible fade show"
+            *ngIf="
+            collectorForm.get('name').hasError('required') &&
+            collectorForm.get('name').touched
+            " i18n
+          >
+            Nombre requerido
+          </div>
+          <div
+            class="namePatternError alert alert-danger alert-dismissible fade show"
+            *ngIf="
+            collectorForm.get('name').hasError('minlength') &&
+            collectorForm.get('name').touched
+            " i18n
+          >
+            Nombre es demasiado corto. Deberían ser al menos 2 caracteres
+          </div>
+        </div>
+
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="email" i18n> Email* </label>
+          <input
+            required
+            id="email"
+            type="text"
+            class="form-control"
+            formControlName="email"
+            placeholder="Your Email"
+          />
+          <div
+            class="emailRequiredError alert alert-danger alert-dismissible fade show"
+            *ngIf="
+            collectorForm.get('email').hasError('required') &&
+            collectorForm.get('email').touched
+            " i18n
+          >
+            Correo es requerido
+          </div>
+          <div
+            class="namePatternError alert alert-danger alert-dismissible fade show"
+            *ngIf="
+            collectorForm.get('email').touched &&
+            collectorForm.get('email').hasError('email')
+            " i18n
+          >
+            Formato de correo incorrecto. Debe incluir un @.
+          </div>
+        </div>
+
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="telephone" i18n> Teléfono* </label>
+          <input
+            required
+            id="telephone"
+            type="text"
+            class="form-control"
+            formControlName="telephone"
+            placeholder="Your telephone"
+          />
+          <div
+            class="telephoneRequiredError alert alert-danger alert-dismissible fade show"
+            *ngIf="
+            collectorForm.get('telephone').hasError('required') &&
+            collectorForm.get('telephone').touched
+            " i18n
+          >
+          Teléfono es requerido
+          </div>
+          <div
+            class="telephonePatternError alert alert-danger alert-dismissible fade show"
+            *ngIf="
+            collectorForm.get('telephone').touched &&
+            collectorForm.get('telephone').hasError('minlength')
+            " i18n
+          >
+          Formato telefono es demasiado corto. Deberían tener al menos 6 caracteres
+          </div>
+        </div>
+        <div class="form-group mx-sm-12 mb-12">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!collectorForm.valid" i18n
+          >
+            Crear
+          </button>
+          <button
+            i18n
+            type="button"
+            class="btn btn-danger ml-3"
+            (click)="cancelCreation()"
+          >Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

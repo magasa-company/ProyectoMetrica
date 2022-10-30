@@ -1,0 +1,129 @@
+<app-list-header [title]="title"></app-list-header>
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <form
+        [formGroup]="musicianForm"
+        (ngSubmit)="!musicianForm.invalid && createMusician()"
+      >
+        <div class="mb-4">
+          <label i18n for="musician-name" class="form-label">
+            Nombre*
+          </label>
+          <div class="input-group has-validation">
+            <input
+              required
+              novalidate
+              formControlName="name"
+              type="text"
+              class="form-control"
+              [class.is-valid]="name.valid"
+              [class.is-invalid]="name.invalid && name.touched"
+              name="name"
+              id="musician-name"
+            >
+            <div
+              *ngIf="name.invalid && name.touched"
+              class="invalid-feedback" i18n
+            >
+              El nombre no puede estar vacio.
+            </div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label i18n for="musician-thumbnail" class="form-label">
+            Imagen del músico*
+          </label>
+          <div class="input-group has-validation">
+            <input
+              required
+              novalidate
+              type="url"
+              name="image"
+              formControlName="image"
+              id="musician-image"
+              placeholder="https://example.com/example.jpg"
+              [class.is-valid]="image.valid && image.touched"
+              [class.is-invalid]="image.invalid && image.touched"
+              class="form-control w-100"
+            >
+            <div
+              i18n
+              *ngIf="image.errors?.imageURI"
+              class="invalid-feedback"
+            >
+              Por favor introduce una dirección válida. Ej. https://example.com/example.jpg
+            </div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label i18n for="musician-birthDate" class="form-label">
+            Fecha de nacimiento*
+          </label>
+          <div class="input-group has-validation">
+            <input
+              required
+              type="date"
+              name="birthDate"
+              id="musician-birthDate"
+              formControlName="birthDate"
+              class="form-control"
+              [class.is-valid]="birthDate.valid && birthDate.touched"
+              [class.is-invalid]="birthDate.invalid && birthDate.touched"
+            >
+          </div>
+        </div>
+        <div class="mb-5">
+          <label i18n for="musician-description" class="form-label">
+            Descripción*
+          </label>
+          <div class="input-group has-validation">
+            <textarea
+              required
+              rows="2"
+              name="description"
+              id="musician-description"
+              formControlName="description"
+              class="form-control w-100"
+              [class.is-valid]="description.valid && description.touched"
+              [class.is-invalid]="description.invalid && description.touched"
+            ></textarea>
+            <small class="mt-2 text-secondary">{{description.value.length}}/{{maxDescriptionLength}}</small>
+            <div
+              i18n
+              *ngIf="description.errors?.required"
+              class="invalid-feedback"
+            >
+              La descripción no puede estar vacia.
+            </div>
+            <div
+              i18n
+              *ngIf="description.errors?.maxlength"
+              class="invalid-feedback"
+            >
+              La descripción no puede ser mayor a {{maxDescriptionLength}} caracteres.
+            </div>
+          </div>
+        </div>
+        <button
+          i18n
+          id="submitBtn"
+          type="submit"
+          class="btn btn-primary me-4"
+          [class.disabled]="musicianForm.invalid"
+          [disabled]="musicianForm.invalid"
+        >
+          Agregar músico
+        </button>
+        <button
+          i18n
+          id="cancelBtn"
+          class="btn btn-outline-danger"
+          (click)="navigateBack()"
+        >
+          Cancelar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

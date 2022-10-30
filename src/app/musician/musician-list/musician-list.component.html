@@ -1,0 +1,9 @@
+<app-loading *ngIf="!musicians"></app-loading>
+<app-list-header [title]="title" [onClick]="navigateToCreate"></app-list-header>
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col">
+      <app-table [headers]="table.headers" [rows]="table.rows"></app-table>
+    </div>
+  </div>
+</div>

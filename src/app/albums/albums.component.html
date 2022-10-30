@@ -1,0 +1,13 @@
+<app-loading *ngIf="!albumes"></app-loading>
+<app-list-header [title]="title" [onClick]="navigateToCreate"> </app-list-header>
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col">
+      <app-table
+        [headers]="headers"
+        [rows]="rows"
+        [tableContentName]="tableContentName"
+      ></app-table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<app-loading *ngIf="!musicians || !musician || !albums"></app-loading>
+<div *ngIf="musicians && musician" class="featured-background min-vh-100">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col">
+        <h1 id="welcomeMessage" i18n>Bienvenido a Music Geeks</h1>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col">
+        <div class="card bg-dark text-white featured-musician-card card-shadow">
+          <img [src]="musician.image" class="card-img featured-musician-img" [alt]="musician.name">
+          <div class="card-img-overlay featured-musician-overlay">
+            <div>
+              <h2 class="h5 text-uppercase mb-3"  i18n>Artista destacado</h2>
+              <h3 class="h1 mb-5">{{musician.name}}</h3>
+              <button type="button"  i18n class="btn btn-outline-light btn-lg" routerLink="musicos/{{musician.id}}">
+                Ver músico
+                <em class="bi bi-chevron-right"></em>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col"  i18n>
+        <h4>Albumes recientes</h4>
+      </div>
+    </div>
+    <div class="row album-cards">
+      <div class="col-12 col-sm-4 mb-5 " *ngFor="let album of albums;">
+        <app-card [imgSrc]="album.cover" [imgAlt]="album.name">
+          <h5 class="card-title mb-2">{{album.name}}</h5>
+          <p class="mb-4 text-secondary">
+            <em class="bi bi-music-note"></em>
+            {{album.genre}}
+          </p>
+          <button type="button"  i18n class="btn btn-primary btn-sm" routerLink="albumes/{{album.id}}">
+            Ver album
+            <em class="bi bi-chevron-right"></em>
+          </button>
+        </app-card>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <h4  i18n>Músicos recientes</h4>
+      </div>
+    </div>
+    <div class="row musician-cards">
+      <div class="col-12 col-sm-4 mb-5" *ngFor="let musician of musicians;">
+        <app-card [imgSrc]="musician.image" [imgAlt]="musician.name">
+          <h5 class="card-title mb-2">{{musician.name}}</h5>
+          <p class="mb-4 text-secondary">
+            <em class="bi bi-calendar"></em>
+            {{musician.birthDate | date: 'longDate' : '+0'}}
+          </p>
+          <button type="button"  i18n class="btn btn-primary btn-sm" routerLink="musicos/{{musician.id}}">
+            Ver músico
+            <em class="bi bi-chevron-right"></em>
+          </button>
+        </app-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<div *ngIf="!isLoading">
+  <div *ngIf="collector">
+    <app-detail-header
+    [title]="title"
+    [breadcrumbs]="breadcrumbs"
+    ></app-detail-header>
+  </div>
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <form
+          [formGroup]="commentForm"
+          (ngSubmit)="!commentForm.invalid && addMusican()"
+        >
+          <div class="mb-4">
+            <label i18n for="musician-description" class="form-label" i18n>
+              Selecciona un músico*
+            </label>
+            <div class="input-group has-validation">
+              <select
+                novalidate
+                class="form-select"
+                formControlName="musicianId"
+                name="musicianId"
+                [class.is-valid]="musicianId.valid && musicianId.touched"
+                [class.is-invalid]="musicianId.invalid && musicianId.touched"
+                required
+              >
+                <option selected disabled value="" i18n>Seleccionar...</option>
+                <option *ngFor="let option of musicanOptions" [value]="option.value">
+                  {{option.label}}
+                </option>
+              </select>
+              <div
+                i18n
+                *ngIf="musicianId.errors?.required"
+                class="invalid-feedback" i18n
+              >
+                El músico no puede estar vacio.
+              </div>
+            </div>
+          </div>
+
+
+          <button
+            i18n
+            type="submit"
+            class="btn btn-primary me-4"
+            [class.disabled]="!commentForm.valid" i18n
+          >
+            Agregar Músico
+          </button>
+          <button
+            i18n
+            type="submit"
+            class="btn btn-outline-danger"
+            (click)="navigateBack()" i18n
+          >
+            Cancelar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

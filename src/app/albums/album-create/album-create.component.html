@@ -1,0 +1,239 @@
+<app-list-header [title]="title" ></app-list-header>
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <form
+        [formGroup]="albumForm"
+        (ngSubmit)="!albumForm.invalid && createNewAlbum(albumForm.value)"
+      >
+        <div class="mb-4" [formGroup]="albumForm">
+          <label for="name" id="nameLabel" class="form-label" i18n> Título </label>
+          <input
+            novalidate
+            id="name"
+            name="name"
+            class="form-control w-100"
+            [class.is-valid]="name.valid && name.touched"
+            [class.is-invalid]="name.invalid && name.touched"
+            formControlName="name"
+            i18n-placeholder
+            placeholder="Título del album"
+            required
+          />
+          <div
+            id="nameRequiredError"
+            class="invalid-feedback"
+            *ngIf="
+              albumForm.get('name').hasError('required') &&
+              albumForm.get('name').touched
+            "
+            i18n
+          >
+            Título es requerido
+          </div>
+        </div>
+        <div class="mb-4" [formGroup]="albumForm">
+          <label id="coverLabel" for="cover" class="form-label" i18n> Portada </label>
+          <input
+            type="url"
+            novalidate
+            id="cover"
+            name="cover"
+            class="form-control w-100"
+            [class.is-valid]="cover.valid && cover.touched"
+            [class.is-invalid]="cover.invalid && cover.touched"
+            formControlName="cover"
+            i18n-placeholder
+            placeholder="URL de la portada del album"
+            required
+          />
+          <div
+            id="coverRequiredError"
+            class="invalid-feedback"
+            *ngIf="
+              albumForm.get('cover').hasError('required') &&
+              albumForm.get('name').touched
+            "
+            i18n
+          >
+            URL del cover es requerido
+          </div>
+          <div
+            id="coverPatternError"
+            class="invalid-feedback"
+            *ngIf="
+              albumForm.get('cover').hasError('pattern') &&
+              albumForm.get('name').touched
+            "
+            i18n
+          >
+            Texto ingresado no tiene formato de URL
+          </div>
+        </div>
+        <div class="mb-4" [formGroup]="albumForm">
+          <label id="releaseDateLabel" for="releaseDate" class="form-label" i18n> Lanzamiento </label>
+          <input
+            type="date"
+            novalidate
+            id="releaseDate"
+            name="releaseDate"
+            class="form-control w-100"
+            [class.is-valid]="releaseDate.valid && releaseDate.touched"
+            [class.is-invalid]="releaseDate.invalid && releaseDate.touched"
+            formControlName="releaseDate"
+            i18n-placeholder
+            placeholder="dd/mm/yyyy"
+            required
+          />
+          <div
+            id="releaseDateRequiredError"
+            class="invalid-feedback"
+            *ngIf="
+              albumForm.get('releaseDate').hasError('required') &&
+              albumForm.get('releaseDate').touched
+            "
+            i18n
+          >
+            Fecha de lanzamiento es requerida
+          </div>
+        </div>
+        <div class="mb-4" [formGroup]="albumForm">
+          <label id="genreLabel" for="genre" class="form-label" i18n> Género </label>
+          <select novalidate
+          id="genre"
+          name="genre"
+          class="form-control w-100"
+          [class.is-valid]="genre.valid && genre.touched"
+          [class.is-invalid]="genre.invalid && genre.touched"
+          formControlName="genre"
+          i18n-placeholder
+          placeholder="Género del album"
+          required
+          (change)="changeGenre($event)">
+            <option value="" disabled>Seleccione el género</option>
+            <option *ngFor="let genre of genreList" id="genre{{genre}}" [ngValue]="genre">{{genre}}</option>
+         </select>
+          <div
+            id="genreRequiredError"
+            class="invalid-feedback"
+            *ngIf="
+              albumForm.get('genre').hasError('required') &&
+              albumForm.get('genre').touched
+            "
+            i18n
+          >
+            Género es requerido
+          </div>
+        </div>
+        <div class="mb-4" [formGroup]="albumForm">
+          <label id="recordLabelLabel" for="recordLabel" class="form-label" i18n> Firma Discográfica </label>
+          <select novalidate
+          id="recordLabel"
+          name="recordLabel"
+          class="form-control w-100"
+          [class.is-valid]="recordLabel.valid && recordLabel.touched"
+          [class.is-invalid]="recordLabel.invalid && recordLabel.touched"
+          formControlName="recordLabel"
+          i18n-placeholder
+          placeholder="Firma discográfica de lanzamiento"
+          required
+          (change)="changeRecordLabel($event)">
+            <option value="" disabled>Seleccione la firma</option>
+            <option class="recordLabelOption" *ngFor="let recordLabel of recordingLabelList"  id="recordLabel{{recordLabel.replace(' ','')}}" [ngValue]="recordLabel">{{recordLabel}}</option>
+         </select>
+          <div
+            id="recordLabelRequiredError"
+            class="invalid-feedback"
+            *ngIf="
+              albumForm.get('recordLabel').hasError('required') &&
+              albumForm.get('recordLabel').touched
+            "
+            i18n
+          >
+            Firma es requerida
+          </div>
+          <div
+            id="recordLabelMaxLengthError"
+            class="invalid-feedback"
+            *ngIf="
+              albumForm.get('recordLabel').hasError('maxlength') &&
+              albumForm.get('recordLabel').touched
+            "
+
+          >
+            Firma no debe tener más de 100 caracteres
+          </div>
+        </div>
+        <div class="mb-4" [formGroup]="albumForm">
+          <label id="descriptionLabel" for="description" class="form-label" i18n> Descripción </label>
+          <textarea
+            novalidate
+            id="description"
+            name="description"
+            class="form-control w-100"
+            [class.is-valid]="description.valid && description.touched"
+            [class.is-invalid]="description.invalid && description.touched"
+            formControlName="description"
+            i18n-placeholder
+            placeholder="Descripción del album"
+            required
+          ></textarea>
+          <div
+            id="descriptionRequiredError"
+            class="invalid-feedback"
+            *ngIf="
+              albumForm.get('description').hasError('required') &&
+              albumForm.get('description').touched
+            "
+            i18n
+          >
+            Descripción es requerida
+          </div>
+          <div
+            id="descriptionMaxLengthError"
+            class="invalid-feedback"
+            *ngIf="
+              albumForm.get('description').hasError('maxlength') &&
+              albumForm.get('description').touched
+            "
+            i18n
+          >
+            Tamaño máximo de la descripción son 500 caracterés
+          </div>
+          <div
+            id="descriptionMinLengthError"
+            class="invalid-feedback"
+            *ngIf="
+              albumForm.get('description').hasError('minlength') &&
+              albumForm.get('description').touched
+            "
+
+          >
+            Tamaño mínimo de la descripción son 10 caracterés
+          </div>
+        </div>
+        <button id="createButton"
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!albumForm.valid"
+          i18n
+        >Crear</button>
+        <button
+          id="cleanButton"
+          type="button"
+          class="btn btn-secondary ml-3"
+          (click)="cleanFields()"
+          i18n
+        >
+          Limpiar
+        </button>
+        <button id="cancelButton"
+          type="button"
+          class="btn btn-danger ml-3"
+          (click)="cancelCreation()"
+          i18n
+        >Cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>

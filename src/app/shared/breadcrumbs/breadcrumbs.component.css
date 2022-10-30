@@ -1,0 +1,14 @@
+.breadcrumb-item + .breadcrumb-item {
+  padding-left: 16px;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: var(--bs-breadcrumb-divider, ">");
+  font-weight: bold;
+  padding-right: 16px;
+}
+
+.breadcrumb-item.active {
+  content: var(--bs-breadcrumb-divider, ">");
+  color: rgba(103, 81, 242, 1);
+}
