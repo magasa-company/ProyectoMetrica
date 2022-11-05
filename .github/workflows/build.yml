@@ -25,13 +25,13 @@ jobs:
         if: steps.node-cache.outputs.cache-hit != 'true' 
         run: npm install
       # Ejecutar pruebas unitarias
-      - name: Run tests and linter
-        uses: actions/setup-node@v2
-        with:
-          node-version: 12
-      - run: npm ci
-      - run: npm run test
-      - run: npm run lint
+      # - name: Run tests and linter
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: 12
+      # - run: npm ci
+      # - run: npm run test
+      # - run: npm run lint
       # Ejecutar SonarCloud Scan
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
