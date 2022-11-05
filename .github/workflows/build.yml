@@ -1,9 +1,9 @@
 name: SonarCloud analysis
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]    
+    branches: [ "main" ]    
 jobs:
   sonarcloud:
     name: SonarCloud
@@ -21,7 +21,7 @@ jobs:
       - name: Run tests and coverage
         run: npm run test:cov
       - name: Analyze with SonarCloud
-        uses: sonarsource/sonarcloud-github-action@master
+        uses: sonarsource/sonarcloud-github-action@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   # Generate a token on Sonarcloud.io, add it 
