@@ -16,10 +16,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      # Instalar dependencias
       - name: Install npm dependencies
-        run: npm ci
-      - name: Run tests and coverage
-        run: npm run test:cov
+        # No ejecutar si se obtuvo node_modules de cache
+        if: steps.node-cache.outputs.cache-hit != 'true' 
+        run: npm install
+      # Ejecutar pruebas unitarias
+      - name: Run Unit tests
+        run: npm run test -- --configuration=ci
+      # Ejecutar SonarCloud Scan
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
